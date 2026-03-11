@@ -28,14 +28,16 @@ public:
         std::cout<<"Company: "<<Company<<std::endl;
         std::cout<<"Age: "<<Age<<std::endl;
     }
+
+    Employee(std::string name, std::string company, int age){
+        Name = name;
+        Company = company;
+        Age = age;
+    }
 };
 
 int main(){
-    
-    Employee emp1;
-    emp1.Name = "Berry Allen";
-    emp1.Company = "Star lab";
-    emp1.Age = 25;
 
+    Employee emp1 = Employee("Berry Allen", "Star lab", 25);
     emp1.Introducton();
 }
