@@ -17,10 +17,24 @@
 */
 
 class Employee{
-public:
+    
+    private:
+
     std::string Name;
     std::string Company;
     int Age;
+    
+    public:
+
+    void setName(std::string name)
+    {
+        Name = name;
+    }
+
+    std::string getName()
+    {
+        return Name;
+    }
 
     void Introducton()
     {
@@ -29,7 +43,8 @@ public:
         std::cout<<"Age: "<<Age<<std::endl;
     }
 
-    Employee(std::string name, std::string company, int age){
+    Employee(std::string name, std::string company, int age)
+    {
         Name = name;
         Company = company;
         Age = age;
@@ -40,4 +55,5 @@ int main(){
 
     Employee emp1 = Employee("Berry Allen", "Star lab", 25);
     emp1.Introducton();
+
 }
