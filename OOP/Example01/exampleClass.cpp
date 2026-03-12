@@ -16,24 +16,63 @@
         usually declared as public.
 */
 
-class Employee{
-    
-    private:
+/*
+    - What is encapsulation?
+        - Encapsulation ensure that sensitive data are not directly accessible to an user or outside of the class.
+        "private" or "protected" access specifier can be used to encap the data, use setter and getter methods to interact
+        with them.
+*/
 
+/*
+    - What is abstraction?
+        - Abstraction is hiding complex things behind a procedure that makes them looks
+        simple.
+*/
+
+class AbstractEmployee{
+    
+    virtual void AskForPromotion()=0;
+
+};
+
+class Employee: AbstractEmployee{
+    
+    //Following attributes are not visible out side of the class Employee
+    private:
     std::string Name;
     std::string Company;
     int Age;
     
     public:
-
+    //Getter function/method
     void setName(std::string name)
     {
         Name = name;
     }
-
+    //Setter function/method
     std::string getName()
     {
         return Name;
+    }
+
+    void setCompany(std::string company)
+    {
+        Company = company;
+    }
+
+    std::string getCompany()
+    {
+        return Company;
+    }
+
+    void setAge(int age)
+    {
+        Age = age;
+    }
+
+    int getAge()
+    {
+        return Age;
     }
 
     void Introducton()
@@ -48,6 +87,14 @@ class Employee{
         Name = name;
         Company = company;
         Age = age;
+    }
+
+    void AskForPromotion(){
+        if (Age > 30){
+            std::cout<< "Congradulation! " << Name <<std::endl;
+        }else{
+            std::cout<< Name << " you have not completed minimum requirement" << std::endl; 
+        }
     }
 };
 
