@@ -38,7 +38,7 @@ class AbstractEmployee{
 class Employee: AbstractEmployee{
     
     //Following attributes are not visible out side of the class Employee
-    private:
+    protected:
     std::string Name;
     std::string Company;
     int Age;
@@ -75,7 +75,7 @@ class Employee: AbstractEmployee{
         return Age;
     }
 
-    void Introducton()
+    void Introduction()
     {
         std::cout<<"Name: "<<Name<<std::endl;
         std::cout<<"Company: "<<Company<<std::endl;
@@ -98,9 +98,36 @@ class Employee: AbstractEmployee{
     }
 };
 
+/*
+    - What is inheritance?
+        - Inheritance allows one class to reuse or access functions/methods and attributes from another class.
+    
+    - The derived class become the child class and base class become the parent class. in this example, Developer class 
+    is the child class and Employee class is the parent class.
+*/
+class Developers: public Employee{
+
+    public:
+
+    std::string ProgrammingLanguage;
+    Developers(std::string name, std::string company, int age, std::string programminglanguage)
+        :Employee(name,company,age)
+    {
+        ProgrammingLanguage = programminglanguage;
+    }
+
+    void FixBug()
+    {
+        std::cout<<Name << " fixed a bug" << std::endl;
+    }
+};
+
 int main(){
 
     Employee emp1 = Employee("Berry Allen", "Star lab", 25);
-    emp1.Introducton();
+    Employee emp2 = Employee("Bruce Wayne", "Wayne Industries", 32);
 
+    Developers dev1 = Developers("Bruce Wayne", "Wayne Industries", 32, "C++");
+
+    dev1.FixBug();
 }
